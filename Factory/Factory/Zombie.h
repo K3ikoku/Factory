@@ -7,6 +7,10 @@ public:
 	Zombie();
 	~Zombie();
 
+	int GetDamage() override;
+
+	int GetCost() override;
+
 	void Attack() override;
 
 	void Die() override;
@@ -15,5 +19,7 @@ public:
 
 private:
 	int m_hp;
+	int m_cost;
+	int m_damage;
 };
 

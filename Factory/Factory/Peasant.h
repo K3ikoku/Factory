@@ -1,22 +1,21 @@
 #pragma once
 #include "Unit.h"
-class ZombieHound :
+class Peasant :
 	public Unit
 {
 public:
-	ZombieHound();
-	~ZombieHound();
-
-	int GetCost() override;
+	Peasant();
+	~Peasant();
 
 	int GetDamage() override;
+
+	int GetCost() override;
 
 	void Attack() override;
 
 	void Die() override;
 
 	void TakeDamage(int damage) override;
-
 
 private:
 	int m_hp;

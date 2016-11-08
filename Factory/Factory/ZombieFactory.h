@@ -5,11 +5,11 @@
 #include "BruteZombie.h"
 #include "ZombieHound.h"
 
-class UnitFactory
+class ZombieFactory
 {
 public:
-	UnitFactory();
-	~UnitFactory();
+	ZombieFactory();
+	~ZombieFactory();
 
 	Unit* CreateUnit(char* unitType);
 

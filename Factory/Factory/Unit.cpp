@@ -29,3 +29,13 @@ void Unit::TakeDamage(int damage)
 		Die();
 	}
 }
+
+int Unit::GetDamage()
+{
+	return m_damage;
+}
+
+int Unit::GetCost()
+{
+	return m_cost;
+}

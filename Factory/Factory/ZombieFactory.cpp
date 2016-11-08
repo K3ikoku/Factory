@@ -1,18 +1,18 @@
-#include "UnitFactory.h"
+#include "ZombieFactory.h"
 
 
 
-UnitFactory::UnitFactory():
+ZombieFactory::ZombieFactory():
 	m_newUnit(nullptr)
 {
 }
 
 
-UnitFactory::~UnitFactory()
+ZombieFactory::~ZombieFactory()
 {
 }
 
-Unit* UnitFactory::CreateUnit(char* unitType)
+Unit* ZombieFactory::CreateUnit(char* unitType)
 {
 	m_newUnit = nullptr;
 	switch (*unitType)
