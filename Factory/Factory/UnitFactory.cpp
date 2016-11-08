@@ -26,6 +26,10 @@ Unit* UnitFactory::CreateUnit(char* unitType)
 	case 'B':
 		m_newUnit = new BruteZombie();
 		break;
+	case 'h':
+	case 'H':
+		m_newUnit = new ZombieHound();
+		break;
 
 	default:
 		std::cout << *unitType << " is not a valid input" << std::endl;

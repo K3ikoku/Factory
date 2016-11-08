@@ -33,6 +33,9 @@
     <ClCompile Include="BruteZombie.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ZombieHound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BruteZombie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieHound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

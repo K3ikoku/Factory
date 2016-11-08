@@ -148,6 +148,7 @@
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="UnitFactory.cpp" />
     <ClCompile Include="Zombie.cpp" />
+    <ClCompile Include="ZombieHound.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BruteZombie.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Unit.h" />
     <ClInclude Include="UnitFactory.h" />
     <ClInclude Include="Zombie.h" />
+    <ClInclude Include="ZombieHound.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

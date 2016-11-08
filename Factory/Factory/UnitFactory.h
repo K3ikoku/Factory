@@ -3,6 +3,7 @@
 #include "Unit.h"
 #include "Zombie.h"
 #include "BruteZombie.h"
+#include "ZombieHound.h"
 
 class UnitFactory
 {
