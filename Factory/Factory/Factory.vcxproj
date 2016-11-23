@@ -142,26 +142,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArmoredPeasant.cpp" />
     <ClCompile Include="BruteZombie.cpp" />
     <ClCompile Include="FlyingTerror.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Knight.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Peasant.cpp" />
+    <ClCompile Include="Town.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="ZombieFactory.cpp" />
     <ClCompile Include="Zombie.cpp" />
+    <ClCompile Include="ZombieHoard.cpp" />
     <ClCompile Include="ZombieHound.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArmoredPeasant.h" />
     <ClInclude Include="BruteZombie.h" />
     <ClInclude Include="FlyingTerror.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="Knight.h" />
     <ClInclude Include="Peasant.h" />
+    <ClInclude Include="Town.h" />
     <ClInclude Include="Unit.h" />
-    <ClInclude Include="ZombieFactory.h" />
+    <ClInclude Include="UnitFactory.h" />
     <ClInclude Include="Zombie.h" />
+    <ClInclude Include="ZombieHoard.h" />
     <ClInclude Include="ZombieHound.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

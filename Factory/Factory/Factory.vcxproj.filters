@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Units">
+      <UniqueIdentifier>{bf040788-9130-43f6-a2c9-1287c2a6c98f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Units">
+      <UniqueIdentifier>{099f8100-48fc-4c23-8ff5-6183755e7822}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -24,25 +30,34 @@
     <ClCompile Include="Unit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Zombie.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ArmoredPeasant.cpp">
+      <Filter>Source Files\Units</Filter>
     </ClCompile>
     <ClCompile Include="BruteZombie.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ZombieHound.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Units</Filter>
     </ClCompile>
     <ClCompile Include="FlyingTerror.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Knight.cpp">
+      <Filter>Source Files\Units</Filter>
     </ClCompile>
     <ClCompile Include="Peasant.cpp">
+      <Filter>Source Files\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>Source Files\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieHound.cpp">
+      <Filter>Source Files\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="ZombieHoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Town.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ZombieFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Knight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -50,28 +65,37 @@
     <ClInclude Include="GameManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Unit.h">
+    <ClInclude Include="UnitFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Zombie.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="ArmoredPeasant.h">
+      <Filter>Header Files\Units</Filter>
     </ClInclude>
     <ClInclude Include="BruteZombie.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ZombieHound.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Units</Filter>
     </ClInclude>
     <ClInclude Include="FlyingTerror.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Peasant.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ZombieFactory.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Units</Filter>
     </ClInclude>
     <ClInclude Include="Knight.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Peasant.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieHound.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="ZombieHoard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Town.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
