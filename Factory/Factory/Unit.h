@@ -12,6 +12,10 @@ public:
 
 	void virtual TakeDamage(int damage);
 
+	int virtual GetHP();
+
+	int virtual GetReward();
+
 	int virtual GetDamage();
 	
 	int virtual GetCost();
@@ -20,5 +24,6 @@ private:
 	int m_hp;
 	int m_cost;
 	int m_damage;
+	int m_reward;
 };
 

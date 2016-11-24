@@ -3,7 +3,8 @@
 
 
 BruteZombie::BruteZombie():
-	m_hp(150), m_cost(100)
+	m_hp(150), m_cost(100), 
+	m_reward(75), m_damage(50)
 {
 }
 
@@ -20,6 +21,14 @@ int BruteZombie::GetDamage()
 int BruteZombie::GetCost()
 {
 	return m_cost;
+}
+int BruteZombie::GetHP()
+{
+	return m_hp;
+}
+int BruteZombie::GetReward()
+{
+	return m_reward;
 }
 void BruteZombie::Attack()
 {

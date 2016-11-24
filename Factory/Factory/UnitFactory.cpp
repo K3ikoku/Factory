@@ -12,10 +12,10 @@ UnitFactory::~UnitFactory()
 {
 }
 
-Unit* UnitFactory::CreateZombie(char* unitType, int budget)
+Unit* UnitFactory::CreateZombie(char& unitType, int budget)
 {
 	m_newUnit = nullptr;
-	switch (*unitType)
+	switch (unitType)
 	{
 	case 'z':
 	case 'Z': 
@@ -35,10 +35,10 @@ Unit* UnitFactory::CreateZombie(char* unitType, int budget)
 		m_newUnit = new FlyingTerror();
 		break;
 	default:
-		std::cout << *unitType << " is not a valid input" << std::endl;
+		std::cout << unitType << " is not a valid input" << std::endl;
 	}
 
-	if (m_newUnit->GetCost > budget)
+	if (m_newUnit->GetCost() > budget)
 	{
 		std::cout << "You don't have enough money for that unit type." << std::endl;
 		m_newUnit = nullptr;
@@ -50,7 +50,7 @@ Unit* UnitFactory::CreateZombie(char* unitType, int budget)
 Unit * UnitFactory::CreateHuman(char* unitType)
 {
 	m_newUnit = nullptr;
-	switch (unitType)
+	switch (*unitType)
 	{
 	case 'p':
 		m_newUnit = new Zombie();

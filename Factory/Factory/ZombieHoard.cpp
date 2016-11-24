@@ -15,6 +15,7 @@ ZombieHoard::~ZombieHoard()
 void ZombieHoard::AddToHoard(Unit * newUnit)
 {
 	m_hoard.push_back(newUnit);
+	
 }
 
 void ZombieHoard::RemoveFromHoard(Unit* unit)
@@ -29,6 +30,32 @@ void ZombieHoard::RemoveFromHoard(Unit* unit)
 	}
 }
 
+void ZombieHoard::Attack(Town * town)
+{
+	for each (Unit* unit in m_hoard)
+	{
+		m_target = nullptr;
+		m_target = town->GetTownsPeople()[rand() % town->TownPopulation() - 1];
+		m_target->TakeDamage(unit->GetDamage());
+		unit->TakeDamage(m_target->GetDamage());
+		if (0 >= m_target->GetHP())
+		{
+			AddToBudget(m_target->GetReward());
+			town->RemoveHuman(m_target);
+		}
+		if (0 >= unit->GetHP())
+		{
+			town->AddToBudget(unit->GetReward());
+			this->RemoveFromHoard(unit);
+		}
+	}
+}
+
+std::vector<Unit*> ZombieHoard::GetHoard()
+{
+	return m_hoard;
+}
+
 int ZombieHoard::HordePopulation()
 {
 	return m_hoard.size();
@@ -37,4 +64,14 @@ int ZombieHoard::HordePopulation()
 int ZombieHoard::GetBudget()
 {
 	return m_budget;
+}
+
+void ZombieHoard::AddToBudget(int reward)
+{
+	m_budget += reward;
+}
+
+void ZombieHoard::SubtractFromBudget(int cost)
+{
+	m_budget -= cost;
 }

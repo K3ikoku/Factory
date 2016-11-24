@@ -16,36 +16,54 @@ void GameManager::GameLoop()
 {
 	while (m_playAgain == "y")
 	{
-		ZombieHoard* m_hoard = new ZombieHoard();
-		Town* m_town = new Town();
-		UnitFactory* m_factory = new UnitFactory();
 
-		std::cout << "A necromancer comes closer to the town of North Haverbrook" << std::endl;
-		std::cout << "As night is closing in he begins to draw powers from the dark summing unholy creatures of the night" << std::endl;
+		m_factory = new UnitFactory();
+		m_hoard = new ZombieHoard();
+		m_town = new Town(m_factory);
+
+		std::cout << "A necromancer comes closer to the town of North Haverbrook\n" << std::endl;
+		std::cout << "As night is closing in he begins to draw powers from the dark summing unholy creatures of the night\n" << std::endl;
 		while (0 < m_town->TownPopulation())
 		{
-			if (25 < m_hoard->GetBudget() &&
-				0 < m_hoard->HordePopulation())
+			std::cout << "You scouts to the town to see how they prepare for the nightly raids\n" << std::endl;
+			SummonHuman(m_factory, m_town);
+
+
+			if (25 < m_hoard->GetBudget())
 			{
-				std::cout << "It's currently day nr: " << m_dayNr << std::endl;
+				std::cout << "It's currently day nr: " << m_dayNr << "\n" << std::endl;
 				SummonZombies(m_factory, m_hoard);
-				//TODO: Create function for human summonings
+				
+			}
+
+			std::cout << "Night comes and you prepare for battle" << std::endl;
+			m_hoard->Attack(m_town);
+
+			if (0 < m_hoard->HordePopulation() || 25 <= m_hoard->GetBudget())
+			{
+				m_dayNr++;
 			}
 
 			else
 			{
 				std::cout << "All of your zombies are dead and you have depleted your powers." << std::endl;
-				std::cout << "You made it until day: "<< m_dayNr << "until your horde got crushed." << std::endl;
+				std::cout << "You made it until day: " << m_dayNr << "until your horde got crushed.\n" << std::endl;
 				std::cout << "You loose." << std::endl;
 				break;
 			}
-			m_dayNr++;
+
+		}
+
+		if (0 < m_town->TownPopulation())
+		{
+			std::cout << "You have laid waste to the town only rubbel and corpses remain." << std::endl;
+			std::cout << "Corpses that shall soon fill the ranks of your hoard. Congratulations" << std::endl;
 		}
 
 		std::cout << "Do you want to play again? y/n " << std::endl;
 		std::cin >> m_userInput;
-		std::cout << *m_userInput << std::endl;
-		m_playAgain = *m_userInput;
+		std::cout << m_userInput << std::endl;
+		m_playAgain = m_userInput;
 	}
 	m_dayNr = 0;
 }
@@ -54,19 +72,68 @@ void GameManager::SummonZombies(UnitFactory * factory, ZombieHoard* hoard)
 {
 	while (25 <= hoard->GetBudget())
 	{
-		*m_userInput = 'y';
-		while (*m_userInput == 'y')
+		m_userInput = 'y';
+		while (m_userInput == 'y')
 		{
-			std::cout << "You currently have " << hoard->GetBudget() << " power to spend" << std::endl;
-			std::cout << "What do you want to summon? " << std::endl;
+			m_userInput = 'n';
+			m_newUnit = nullptr;
+			std::cout << "You currently have " << hoard->GetBudget() << " power to spend\n" << std::endl;
+			std::cout << "What do you want to summon? \n" << std::endl;
 			std::cout << "Please type in the letter for the unit you want to create" << std::endl;
-			std::cout << "Letter/Unit/Cost    \n z/Zombie/25    \n h/Zombie Hound/35" << std::endl;
-			std::cout << "f/Flying Terror/75     \n b/Brute Zombie/100" << std::endl;
+			std::cout << "Letter / Unit / Cost    \n\nz / Zombie / 25    \nh / Zombie Hound / 35" << std::endl;
+			std::cout << "f / Flying Terror / 75     \nb / Brute Zombie / 100\n"  << std::endl;
 
 			std::cin >> m_userInput;
-			std::cout << *m_userInput << std::endl;
-			factory->CreateZombie(m_userInput, hoard->GetBudget());
-			//TODO: Further construction of the summon function
+			std::cout << m_userInput << "\n" << std::endl;
+			m_newUnit = factory->CreateZombie(m_userInput, hoard->GetBudget());
+			if (m_newUnit != nullptr)
+			{
+				hoard->AddToHoard(m_newUnit);
+				hoard->SubtractFromBudget(m_newUnit->GetCost());
+			}
+			else
+			{
+				m_userInput = 'y';
+			}
+
+
+			if (25 <= hoard->GetBudget() && m_userInput != 'y')
+			{
+				std::cout << "Do you want to summon another creatuer? : y/n" << std::endl;
+			}
 		}
+
+
 	}
 }
+
+void GameManager::SummonHuman(UnitFactory * factory, Town * town)
+{
+	while (25 <= town->GetBudget())
+	{
+		m_newUnit = nullptr;
+
+		if (250 <= town->GetBudget())
+		{
+			*m_townInput = 'k';
+			std::cout << "Your scout reports that the town has summoned a powerful Knight.\n" << std::endl;
+		}
+		else if(50 <= town->GetBudget())
+		{
+			*m_townInput = 'a';
+			std::cout << "One of your undead scouts tells you that the one of the peasants in town has armed themself with a pitchfork and leather armor\n" << std::endl;
+		}
+		else
+		{
+			*m_townInput = 'p';
+			std::cout << "One of the children in town has grown up and is now able to partake in the protection of the town. \n" << std::endl;
+		}
+
+		m_newUnit = factory->CreateHuman(m_townInput);
+		town->AddTownPeople(m_newUnit);
+		town->SubtractFromBudget(m_newUnit->GetCost());
+	}
+}
+
+
+

@@ -3,7 +3,8 @@
 
 
 Zombie::Zombie():
-	m_hp(75), m_cost(25)
+	m_hp(75), m_cost(25), 
+	m_reward(20), m_damage(15)
 {
 }
 
@@ -20,6 +21,16 @@ int Zombie::GetDamage()
 int Zombie::GetCost()
 {
 	return m_cost;
+}
+
+int Zombie::GetHP()
+{
+	return m_hp;
+}
+
+int Zombie::GetReward()
+{
+	return m_reward;
 }
 
 void Zombie::Attack()

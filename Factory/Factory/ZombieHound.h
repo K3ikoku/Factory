@@ -11,6 +11,10 @@ public:
 
 	int GetDamage() override;
 
+	int GetHP() override;
+
+	int GetReward() override;
+
 	void Attack() override;
 
 	void Die() override;
@@ -22,5 +26,6 @@ private:
 	int m_hp;
 	int m_cost;
 	int m_damage;
+	int m_reward;
 };
 

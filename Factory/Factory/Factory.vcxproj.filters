@@ -57,7 +57,7 @@
     <ClCompile Include="Town.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ZombieFactory.cpp">
+    <ClCompile Include="UnitFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

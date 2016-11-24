@@ -2,7 +2,8 @@
 
 
 ArmoredPeasant::ArmoredPeasant() :
-	m_hp(75), m_cost(35)
+	m_hp(75), m_cost(50), 
+	m_reward(25), m_damage(25)
 {
 }
 
@@ -19,6 +20,16 @@ int ArmoredPeasant::GetDamage()
 int ArmoredPeasant::GetCost()
 {
 	return m_cost;
+}
+
+int ArmoredPeasant::GetHP()
+{
+	return m_hp;
+}
+
+int ArmoredPeasant::GetReward()
+{
+	return m_reward;
 }
 
 void ArmoredPeasant::Attack()

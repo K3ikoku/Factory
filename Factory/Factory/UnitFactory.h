@@ -10,15 +10,17 @@
 #include "Knight.h"
 #include "ArmoredPeasant.h"
 
+
 class UnitFactory
 {
 public:
 	UnitFactory();
 	~UnitFactory();
 
-	Unit* CreateZombie(char* unitType, int budget);
+	Unit* CreateZombie(char& unitType, int budget);
 
 	Unit* CreateHuman(char* unitType);
+
 
 private:
 	Unit* m_newUnit;

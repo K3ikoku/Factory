@@ -3,7 +3,8 @@
 
 
 Peasant::Peasant():
-	m_hp(50), m_cost(25)
+	m_hp(50), m_cost(25), 
+	m_reward(20), m_damage(10)
 {
 }
 
@@ -20,6 +21,16 @@ int Peasant::GetDamage()
 int Peasant::GetCost()
 {
 	return m_cost;
+}
+
+int Peasant::GetHP()
+{
+	return m_hp;
+}
+
+int Peasant::GetReward()
+{
+	return m_reward;
 }
 
 void Peasant::Attack()

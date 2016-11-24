@@ -2,9 +2,15 @@
 
 
 
-Town::Town():
-	m_budget(200)
+Town::Town(UnitFactory* factory):
+	m_budget(0)
 {
+	for (unsigned int i = 0; i < 25; i++)
+	{
+		m_newUnit = nullptr;
+		m_newUnit = factory->CreateHuman("p");
+		AddTownPeople(m_newUnit);
+	}
 }
 
 
@@ -29,6 +35,11 @@ void Town::RemoveHuman(Unit * unit)
 	}
 }
 
+std::vector<Unit*> Town::GetTownsPeople()
+{
+	return m_townsPeople;
+}
+
 int Town::TownPopulation()
 {
 	return m_townsPeople.size();
@@ -37,4 +48,14 @@ int Town::TownPopulation()
 int Town::GetBudget()
 {
 	return m_budget;
+}
+
+void Town::AddToBudget(int reward)
+{
+	m_budget += reward;
+}
+
+void Town::SubtractFromBudget(int cost)
+{
+	m_budget -= cost;
 }

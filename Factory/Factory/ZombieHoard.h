@@ -13,13 +13,21 @@ public:
 
 	void RemoveFromHoard(Unit* unit);
 
+	void Attack(Town* town);
+
+	std::vector<Unit*> GetHoard();
+
 	int HordePopulation();
 
 	int GetBudget();
+
+	void AddToBudget(int reward);
+
+	void SubtractFromBudget(int cost);
 
 
 private:
 	std::vector<Unit*> m_hoard;
 	int m_budget;
-
+	Unit* m_target;
 };

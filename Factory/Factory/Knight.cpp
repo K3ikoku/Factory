@@ -3,7 +3,8 @@
 
 
 Knight::Knight():
-	m_hp(250), m_cost(250)
+	m_hp(250), m_cost(250), 
+	m_reward(200), m_damage(75)
 {
 }
 
@@ -20,6 +21,16 @@ int Knight::GetDamage()
 int Knight::GetCost()
 {
 	return m_cost;
+}
+
+int Knight::GetHP()
+{
+	return m_hp;
+}
+
+int Knight::GetReward()
+{
+	return m_reward;
 }
 
 void Knight::Attack()

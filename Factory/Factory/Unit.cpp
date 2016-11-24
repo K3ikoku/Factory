@@ -30,6 +30,16 @@ void Unit::TakeDamage(int damage)
 	}
 }
 
+int Unit::GetHP()
+{
+	return m_hp;
+}
+
+int Unit::GetReward()
+{
+	return m_reward;
+}
+
 int Unit::GetDamage()
 {
 	return m_damage;

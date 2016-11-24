@@ -3,7 +3,8 @@
 
 
 FlyingTerror::FlyingTerror():
-	m_hp(75), m_cost(75)
+	m_hp(75), m_cost(75), 
+	m_reward(50), m_damage(40)
 {
 }
 
@@ -19,6 +20,16 @@ int FlyingTerror::GetDamage()
 int FlyingTerror::GetCost()
 {
 	return m_cost;
+}
+
+int FlyingTerror::GetHP()
+{
+	return m_hp;
+}
+
+int FlyingTerror::GetReward()
+{
+	return m_reward;
 }
 
 void FlyingTerror::Attack()
