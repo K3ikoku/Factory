@@ -36,6 +36,7 @@ Unit* UnitFactory::CreateZombie(char& unitType, int budget)
 		break;
 	default:
 		std::cout << unitType << " is not a valid input" << std::endl;
+		break;
 	}
 
 	if (m_newUnit->GetCost() > budget)

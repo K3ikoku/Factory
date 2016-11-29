@@ -18,7 +18,7 @@ void ZombieHoard::AddToHoard(Unit * newUnit)
 	
 }
 
-void ZombieHoard::RemoveFromHoard(Unit* unit)
+void ZombieHoard::RemoveFromHoard(const Unit* unit)
 {
 	for (unsigned int i = 0; i <= m_hoard.size(); i++)
 	{
@@ -61,17 +61,17 @@ int ZombieHoard::HordePopulation()
 	return m_hoard.size();
 }
 
-int ZombieHoard::GetBudget()
+int& ZombieHoard::GetBudget()
 {
 	return m_budget;
 }
 
-void ZombieHoard::AddToBudget(int reward)
+void ZombieHoard::AddToBudget(const int reward)
 {
 	m_budget += reward;
 }
 
-void ZombieHoard::SubtractFromBudget(int cost)
+void ZombieHoard::SubtractFromBudget(const int cost)
 {
 	m_budget -= cost;
 }

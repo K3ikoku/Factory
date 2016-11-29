@@ -11,7 +11,7 @@ public:
 
 	void AddToHoard(Unit* newUnit);
 
-	void RemoveFromHoard(Unit* unit);
+	void RemoveFromHoard(const Unit* unit);
 
 	void Attack(Town* town);
 
@@ -19,11 +19,11 @@ public:
 
 	int HordePopulation();
 
-	int GetBudget();
+	int& GetBudget();
 
-	void AddToBudget(int reward);
+	void AddToBudget(const int reward);
 
-	void SubtractFromBudget(int cost);
+	void SubtractFromBudget(const int cost);
 
 
 private:

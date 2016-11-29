@@ -75,7 +75,6 @@ void GameManager::SummonZombies(UnitFactory * factory, ZombieHoard* hoard)
 		m_userInput = 'y';
 		while (m_userInput == 'y')
 		{
-			m_userInput = 'n';
 			m_newUnit = nullptr;
 			std::cout << "You currently have " << hoard->GetBudget() << " power to spend\n" << std::endl;
 			std::cout << "What do you want to summon? \n" << std::endl;
@@ -100,6 +99,8 @@ void GameManager::SummonZombies(UnitFactory * factory, ZombieHoard* hoard)
 			if (25 <= hoard->GetBudget() && m_userInput != 'y')
 			{
 				std::cout << "Do you want to summon another creatuer? : y/n" << std::endl;
+				std::cin >> m_userInput;
+				std::cout << "\n" << m_userInput << std::endl;
 			}
 		}
 
