@@ -36,12 +36,22 @@ void GameManager::GameLoop()
 				
 			}
 
-			std::cout << "Night comes and you prepare for battle" << std::endl;
+			std::cout << "Night comes and you prepare for battle\n" << std::endl;
+			m_hoardPreBattle = m_hoard->HordePopulation();
+			m_townPreBattle = m_town->TownPopulation();
 			m_hoard->Attack(m_town);
+
+			int diff = std::abs(m_hoardPreBattle - m_hoard->HordePopulation());
+			std::cout << "You lost " << diff << " creatures durin the night.\n" << std::endl;
+			diff = std::abs(m_townPreBattle - m_town->TownPopulation());
+			std::cout << "You killed " << diff << " of the filthy humans during the night.\n" << std::endl;
 
 			if (0 < m_hoard->HordePopulation() || 25 <= m_hoard->GetBudget())
 			{
 				m_dayNr++;
+				std::cout << "Press any button to proceed to the next day\n" << std::endl;
+				std::cin >> m_userInput;
+				std::cout << "\n" << std::endl;
 			}
 
 			else
@@ -62,7 +72,8 @@ void GameManager::GameLoop()
 
 		std::cout << "Do you want to play again? y/n " << std::endl;
 		std::cin >> m_userInput;
-		std::cout << m_userInput << std::endl;
+		std::cout << "\n" << std::endl;
+
 		m_playAgain = m_userInput;
 	}
 	m_dayNr = 0;
@@ -70,43 +81,39 @@ void GameManager::GameLoop()
 
 void GameManager::SummonZombies(UnitFactory * factory, ZombieHoard* hoard)
 {
-	while (25 <= hoard->GetBudget())
+	m_userInput = 'y';
+	while (25 <= hoard->GetBudget() && m_userInput == 'y')
 	{
-		m_userInput = 'y';
-		while (m_userInput == 'y')
+		m_newUnit = nullptr;
+		std::cout << "You currently have " << hoard->GetBudget() << " power to spend\n" << std::endl;
+		std::cout << "What do you want to summon? \n" << std::endl;
+		std::cout << "Please type in the letter for the unit you want to create" << std::endl;
+		std::cout << "Letter / Unit / Cost    \n\nz / Zombie / 25    \nh / Zombie Hound / 35" << std::endl;
+		std::cout << "f / Flying Terror / 75     \nb / Brute Zombie / 100\n" << std::endl;
+
+		std::cin >> m_userInput;
+		std::cout <<  "\n" << std::endl;
+		m_newUnit = factory->CreateZombie(m_userInput, hoard->GetBudget());
+		if (m_newUnit != nullptr)
 		{
-			m_newUnit = nullptr;
-			std::cout << "You currently have " << hoard->GetBudget() << " power to spend\n" << std::endl;
-			std::cout << "What do you want to summon? \n" << std::endl;
-			std::cout << "Please type in the letter for the unit you want to create" << std::endl;
-			std::cout << "Letter / Unit / Cost    \n\nz / Zombie / 25    \nh / Zombie Hound / 35" << std::endl;
-			std::cout << "f / Flying Terror / 75     \nb / Brute Zombie / 100\n"  << std::endl;
-
-			std::cin >> m_userInput;
-			std::cout << m_userInput << "\n" << std::endl;
-			m_newUnit = factory->CreateZombie(m_userInput, hoard->GetBudget());
-			if (m_newUnit != nullptr)
-			{
-				hoard->AddToHoard(m_newUnit);
-				hoard->SubtractFromBudget(m_newUnit->GetCost());
-			}
-			else
-			{
-				m_userInput = 'y';
-			}
-
-
-			if (25 <= hoard->GetBudget() && m_userInput != 'y')
-			{
-				std::cout << "Do you want to summon another creatuer? : y/n" << std::endl;
-				std::cin >> m_userInput;
-				std::cout << "\n" << m_userInput << std::endl;
-			}
+			hoard->AddToHoard(m_newUnit);
+			hoard->SubtractFromBudget(m_newUnit->GetCost());
+		}
+		else
+		{
+			m_userInput = 'y';
 		}
 
 
+		if (25 <= hoard->GetBudget() && m_userInput != 'y')
+		{
+			std::cout << "Do you want to summon another creature? : y/n" << std::endl;
+			std::cin >> m_userInput;
+			std::cout << "\n" << std::endl;
+		}
 	}
 }
+
 
 void GameManager::SummonHuman(UnitFactory * factory, Town * town)
 {

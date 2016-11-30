@@ -32,21 +32,21 @@ void ZombieHoard::RemoveFromHoard(const Unit* unit)
 
 void ZombieHoard::Attack(Town * town)
 {
-	for each (Unit* unit in m_hoard)
+	for (unsigned int i = 0; i < HordePopulation(); i++)
 	{
 		m_target = nullptr;
 		m_target = town->GetTownsPeople()[rand() % town->TownPopulation() - 1];
-		m_target->TakeDamage(unit->GetDamage());
-		unit->TakeDamage(m_target->GetDamage());
+		m_target->TakeDamage(m_hoard[i]->GetDamage());
+		m_hoard[i]->TakeDamage(m_target->GetDamage());
 		if (0 >= m_target->GetHP())
 		{
 			AddToBudget(m_target->GetReward());
 			town->RemoveHuman(m_target);
 		}
-		if (0 >= unit->GetHP())
+		if (0 >= m_hoard[i]->GetHP())
 		{
-			town->AddToBudget(unit->GetReward());
-			this->RemoveFromHoard(unit);
+			town->AddToBudget(m_hoard[i]->GetReward());
+			this->RemoveFromHoard(m_hoard[i]);
 		}
 	}
 }

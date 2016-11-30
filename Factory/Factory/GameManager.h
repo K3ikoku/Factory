@@ -16,8 +16,6 @@ public:
 
 	void SummonHuman(UnitFactory* factory, Town* town);
 
-	void BattlePhase(Town* town, ZombieHoard* hoard);
-
 private:
 	std::string m_playAgain;
 	char m_userInput;
@@ -27,5 +25,7 @@ private:
 	ZombieHoard* m_hoard;
 	Town* m_town;
 	UnitFactory* m_factory;
+	int m_hoardPreBattle;
+	int m_townPreBattle;
 };
 
