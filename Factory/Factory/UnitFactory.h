@@ -16,10 +16,10 @@ class UnitFactory
 public:
 	UnitFactory();
 	~UnitFactory();
-
+	//Function for creating zombies based on inputed character
 	Unit* CreateZombie(char& unitType, int budget);
-
-	Unit* CreateHuman(char* unitType);
+	//Function for creating the most powerful unit affordable
+	Unit* CreateHuman(char& unitType);
 
 
 private:

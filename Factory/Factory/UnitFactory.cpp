@@ -14,7 +14,9 @@ UnitFactory::~UnitFactory()
 
 Unit* UnitFactory::CreateZombie(char& unitType, int budget)
 {
+	//Set the new unit variable to null to prevent future troubles
 	m_newUnit = nullptr;
+	//Based on the players inputed value create a new unit
 	switch (unitType)
 	{
 	case 'z':
@@ -48,10 +50,12 @@ Unit* UnitFactory::CreateZombie(char& unitType, int budget)
 	return m_newUnit;
 }
 
-Unit * UnitFactory::CreateHuman(char* unitType)
+Unit * UnitFactory::CreateHuman(char& unitType)
 {
+	//Set the new unit variable to null to prevent future troubles
 	m_newUnit = nullptr;
-	switch (*unitType)
+	//Create the most powerful unit affordable
+	switch (unitType)
 	{
 	case 'p':
 		m_newUnit = new Zombie();
