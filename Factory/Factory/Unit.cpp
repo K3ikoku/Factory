@@ -11,41 +11,29 @@ Unit::Unit():
 Unit::~Unit()
 {
 }
-
-void Unit::Attack()
-{
-}
-
-void Unit::Die()
-{
-}
-
-void Unit::TakeDamage(int damage)
-{
-	m_hp -= damage;
-
-	if (0 >= m_hp)
-	{
-		Die();
-	}
-}
-
-int Unit::GetHP()
-{
-	return m_hp;
-}
-
-int Unit::GetReward()
-{
-	return m_reward;
-}
-
-int Unit::GetDamage()
-{
-	return m_damage;
-}
-
+//Return the cost of the unit
 int Unit::GetCost()
 {
 	return m_cost;
 }
+//Returns the damage of the unit
+int Unit::GetDamage()
+{
+	return m_damage;
+}
+//Returns the current health points of the unit
+int Unit::GetHP()
+{
+	return m_hp;
+}
+//Returns the reward given on the units death
+int Unit::GetReward()
+{
+	return m_reward;
+}
+//Takes damage based on the inputed value
+void Unit::TakeDamage(int damage)
+{
+	m_hp -= damage;
+}
+

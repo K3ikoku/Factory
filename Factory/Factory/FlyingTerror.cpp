@@ -11,41 +11,28 @@ FlyingTerror::FlyingTerror():
 FlyingTerror::~FlyingTerror()
 {
 }
-
+//Return the cost of the unit
 int FlyingTerror::GetDamage()
 {
 	return m_damage;
 }
-
+//Returns the damage of the unit
 int FlyingTerror::GetCost()
 {
 	return m_cost;
 }
-
+//Returns the current health points of the unit
 int FlyingTerror::GetHP()
 {
 	return m_hp;
 }
-
+//Returns the reward given on the units death
 int FlyingTerror::GetReward()
 {
 	return m_reward;
 }
-
-void FlyingTerror::Attack()
-{
-}
-
-void FlyingTerror::Die()
-{
-}
-
+//Takes damage based on the inputed value
 void FlyingTerror::TakeDamage(int damage)
 {
 	m_hp -= damage;
-
-	if (0 >= m_hp)
-	{
-		Die();
-	}
 }

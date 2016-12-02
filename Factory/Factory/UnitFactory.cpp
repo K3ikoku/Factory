@@ -12,7 +12,7 @@ UnitFactory::~UnitFactory()
 {
 }
 
-Unit* UnitFactory::CreateZombie(char& unitType, int budget)
+Unit* UnitFactory::CreateZombie(const char& unitType, int budget)
 {
 	//Set the new unit variable to null to prevent future troubles
 	m_newUnit = nullptr;
@@ -50,7 +50,7 @@ Unit* UnitFactory::CreateZombie(char& unitType, int budget)
 	return m_newUnit;
 }
 
-Unit * UnitFactory::CreateHuman(char& unitType)
+Unit * UnitFactory::CreateHuman(const char& unitType)
 {
 	//Set the new unit variable to null to prevent future troubles
 	m_newUnit = nullptr;

@@ -4,21 +4,16 @@ class Unit
 public:
 	Unit();
 	~Unit();
-	
-	//TODO: Add attack target
-	void virtual Attack();
-
-	void virtual Die();
-
-	void virtual TakeDamage(int damage);
-
-	int virtual GetHP();
-
-	int virtual GetReward();
-
-	int virtual GetDamage();
-	
+	//Return the cost of the unit
 	int virtual GetCost();
+	//Returns the damage of the unit
+	int virtual GetDamage();
+	//Returns the current health points of the unit
+	int virtual GetHP();
+	//Returns the reward given on the units death
+	int virtual GetReward();
+	//Takes damage based on the inputed value
+	void virtual TakeDamage(int damage);
 
 private:
 	int m_hp;
