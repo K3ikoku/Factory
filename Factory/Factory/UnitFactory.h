@@ -14,15 +14,15 @@
 class UnitFactory
 {
 public:
-	UnitFactory();
-	~UnitFactory();
-	//Function for creating zombies based on inputed character
-	Unit* CreateZombie(const char& unitType, int budget);
-	//Function for creating the most powerful unit affordable
-	Unit* CreateHuman(const char& unitType);
+    UnitFactory();
+    ~UnitFactory();
+    //Function for creating zombies based on inputed character
+    Unit* CreateZombie(const char& unitType, int budget);
+    //Function for creating the most powerful unit affordable
+    Unit* CreateHuman(const char& unitType);
 
 
 private:
-	Unit* m_newUnit;
+    Unit* m_newUnit;
 };
 
