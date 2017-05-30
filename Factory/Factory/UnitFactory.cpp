@@ -41,10 +41,13 @@ Unit* UnitFactory::CreateZombie(const char& unitType, int budget)
         break;
     }
 
-    if (m_newUnit->GetCost() > budget)
+    if (m_newUnit != nullptr)
     {
-        std::cout << "You don't have enough money for that unit type." << std::endl;
-        m_newUnit = nullptr;
+        if (m_newUnit->GetCost() > budget)
+        {
+            m_newUnit = nullptr;
+            std::cout << "You don't have enough money for that unit type." << std::endl;
+        }
     }
 
     return m_newUnit;

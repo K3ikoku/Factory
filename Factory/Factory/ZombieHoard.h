@@ -2,6 +2,7 @@
 #include <vector>
 #include "Unit.h"
 #include "Town.h"
+#include <random>
 
 class ZombieHoard
 {

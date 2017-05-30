@@ -49,6 +49,7 @@ void ZombieHoard::Attack(Town * town)
         {
             town->AddToBudget(m_hoard[i]->GetReward());
             this->RemoveFromHoard(m_hoard[i]);
+            i--;
         }
     }
 }
