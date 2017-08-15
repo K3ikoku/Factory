@@ -1,6 +1,16 @@
 #include "ZombieHoard.h"
+#include <math.h>
+#include <algorithm>
 
+int clamp(int value, int low, int high)
+{
+	if (value <= low)
+		return low;
+	else if (value >= high)
+		return high;
 
+	return value;
+}
 
 ZombieHoard::ZombieHoard() :
     m_budget(250)
@@ -36,7 +46,8 @@ void ZombieHoard::Attack(Town * town)
     for (unsigned int i = 0; i < HordePopulation(); i++)
     {
         m_target = nullptr;
-        m_target = town->GetHuman()[rand() % town->TownPopulation() - 1];
+		int humanIndex = clamp(rand() % town->TownPopulation() - 1, 0, town->TownPopulation() - 1);
+        m_target = town->GetHuman()[humanIndex];
         m_target->TakeDamage(m_hoard[i]->GetDamage());
         m_hoard[i]->TakeDamage(m_target->GetDamage());
         //Check if either the human or the zombie died and adds the reward to the other
@@ -48,7 +59,7 @@ void ZombieHoard::Attack(Town * town)
         if (0 >= m_hoard[i]->GetHP())
         {
             town->AddToBudget(m_hoard[i]->GetReward());
-            this->RemoveFromHoard(m_hoard[i]);
+            RemoveFromHoard(m_hoard[i]);
             i--;
         }
     }
